@@ -10,6 +10,7 @@ import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
+import org.bukkit.event.player.PlayerTeleportEvent.TeleportCause;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.util.Vector;
@@ -107,4 +108,28 @@ public class GeoSpawn extends JavaPlugin {
 		return l;
 	}
 	
+	/** Can be used to teleport the player on a slight delay, which gets around a nasty issue that can crash
+     * the server if you teleport them during certain events (such as onPlayerJoin).
+     * 
+     * @param p
+     * @param l
+     */
+	// https://github.com/andune/HomeSpawnPlus/blob/master/src/main/java/org/morganm/homespawnplus/HomeSpawnUtils.java
+    public void delayedTeleport(Player p, Location l) {
+    	this.getServer().getScheduler().scheduleSyncDelayedTask(this, new DelayedTeleport(p, l), 2);
+    }
+    
+    private class DelayedTeleport implements Runnable {
+    	private Player p;
+    	private Location l;
+    	
+    	public DelayedTeleport(Player p, Location l) {
+    		this.p = p;
+    		this.l = l;
+    	}
+    	
+    	public void run() {
+    		p.teleport(this.l, TeleportCause.PLUGIN);
+    	}
+    }
 }

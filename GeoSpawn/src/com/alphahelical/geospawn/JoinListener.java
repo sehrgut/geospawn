@@ -8,7 +8,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerTeleportEvent.TeleportCause;
 
 /**
  * @author Keith Beckman
@@ -28,7 +27,7 @@ public class JoinListener implements Listener {
 		if(!p.hasPlayedBefore()) {
 			String country_code = this.plugin.countryCodeOfPlayer(p);
 			Location spawn = this.plugin.retrieveGeoSpawn(country_code);
-			if (spawn != null) p.teleport(spawn, TeleportCause.PLUGIN);
+			if (spawn != null) this.plugin.delayedTeleport(p, spawn);
 			
 		}
 	}
