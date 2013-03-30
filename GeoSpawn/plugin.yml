@@ -1,0 +1,11 @@
+name: GeoSpawn
+main: com.alphahelical.geospawn.GeoSpawn
+version: 0.1a
+depend: [GeoIPTools]
+
+commands:
+  geospawn:
+    description: Sets first-time spawn point for players from [country_code] to your current location
+    usage: /<command> country_code
+    permission: <plugin name>.all
+    permission-message: You don't have <permission>.
