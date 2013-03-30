@@ -80,7 +80,7 @@ public class GeoSpawn extends JavaPlugin {
 		this.cmdex = new GeoSpawnCommandExecutor(this);
 		this.getCommand("geospawn").setExecutor(cmdex);
 	
-		this.getServer().getPluginManager().registerEvents(new JoinListener(this), this);
+		this.getServer().getPluginManager().registerEvents(new PlayerListener(this), this);
 			
 	}
 	

@@ -13,11 +13,11 @@ import org.bukkit.event.player.PlayerJoinEvent;
  * @author Keith Beckman
  *
  */
-public class JoinListener implements Listener {
+public class PlayerListener implements Listener {
 
 	private GeoSpawn plugin;
 	
-	public JoinListener(GeoSpawn plugin) {
+	public PlayerListener(GeoSpawn plugin) {
 		this.plugin = plugin;
 	}
 	
