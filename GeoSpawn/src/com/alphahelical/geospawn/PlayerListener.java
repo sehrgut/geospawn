@@ -3,11 +3,11 @@
  */
 package com.alphahelical.geospawn;
 
-import org.bukkit.Location;
+import org.apache.commons.lang.NullArgumentException;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.*;
 
 /**
  * @author Keith Beckman
@@ -18,6 +18,7 @@ public class PlayerListener implements Listener {
 	private GeoSpawn plugin;
 	
 	public PlayerListener(GeoSpawn plugin) {
+		if(plugin == null) throw new NullArgumentException("plugin");
 		this.plugin = plugin;
 	}
 	
@@ -25,11 +26,11 @@ public class PlayerListener implements Listener {
 	public void onPlayerJoinEvent(PlayerJoinEvent e) {
 		Player p = e.getPlayer();
 		if(!p.hasPlayedBefore()) {
-			String country_code = this.plugin.countryCodeOfPlayer(p);
-			Location spawn = this.plugin.retrieveGeoSpawn(country_code);
-			if (spawn != null) this.plugin.delayedTeleport(p, spawn);
-			
-		}
+			String country_code = Util.countryCodeOfPlayer(p);
+			country_code = (country_code != null ? country_code : Config.getDefaultCountry());
+			if(country_code != null)
+				this.plugin.sendPlayerToGeoSpawn(p, country_code);
+		}		
 	}
-		
 }
+

@@ -5,7 +5,27 @@ depend: [GeoIPTools]
 
 commands:
   geospawn:
+    description: Commands to manage geotargeted first-time spawn points
+    usage: /<command> [set,get,delete,tp]
+    permission: geospawn.*
+    permission-message: You don't have <permission>.
+  geospawn set:
     description: Sets first-time spawn point for players from [country_code] to your current location
     usage: /<command> country_code
-    permission: <plugin name>.all
+    permission: geospawn.set
+    permission-message: You don't have <permission>.
+  geospawn get:
+    description: Prints the first-time spawn point for players from [country_code]
+    usage: /<command> country_code
+    permission: geospawn.get
+    permission-message: You don't have <permission>.
+  geospawn delete:
+    description: Deletes the first-time spawn point for players from [country_code], if it exists
+    usage: /<command> country_code
+    permission: geospawn.delete
+    permission-message: You don't have <permission>.
+  geospawn tp:
+    description: Teleports you to the first-time spawn point for players from [country_code], if it exists
+    usage: /<command> country_code
+    permission: geospawn.tp
     permission-message: You don't have <permission>.

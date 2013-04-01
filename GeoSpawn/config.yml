@@ -1,0 +1,4 @@
+teleport-mode: intercept # delay, intercept, or direct
+intercept-timeout: 20 # maximum time to wait for teleport-mode: intercept
+teleport-delay: 2 # delay in ticks for teleport-mode: delay
+default-country: GB
