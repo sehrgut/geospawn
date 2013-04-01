@@ -27,9 +27,7 @@ public class PlayerListener implements Listener {
 		Player p = e.getPlayer();
 		if(!p.hasPlayedBefore()) {
 			String country_code = Util.countryCodeOfPlayer(p);
-			country_code = (country_code != null ? country_code : Config.getDefaultCountry());
-			if(country_code != null)
-				this.plugin.sendPlayerToGeoSpawn(p, country_code);
+			this.plugin.sendPlayerToGeoSpawn(p, country_code);
 		}		
 	}
 }

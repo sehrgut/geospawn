@@ -124,6 +124,10 @@ public class GeoSpawn extends JavaPlugin {
 
 	public void sendPlayerToGeoSpawn(Player p, String country_code) {
 		Location spawn = this.retrieveGeoSpawn(country_code);
+		
+		if (spawn == null)
+			spawn = this.retrieveGeoSpawn(Config.getDefaultCountry());
+		
 		if (spawn != null) {
 			// TODO: SpawnStrategy to pick world spawn if undefined, also to spawn all players
 			this.getTeleportStrategy().teleport(p, spawn);
