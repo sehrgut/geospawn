@@ -1,6 +1,6 @@
 name: GeoSpawn
-main: com.alphahelical.geospawn.GeoSpawn
-version: 0.1a
+main: com.alphahelical.bukkit.geospawn.GeoSpawn
+version: 0.2b
 depend: [GeoIPTools]
 
 commands:
