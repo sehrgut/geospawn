@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.alphahelical.geospawn;
+package com.alphahelical.bukkit.geospawn;
 
 import org.apache.commons.lang.NullArgumentException;
 import org.bukkit.Location;

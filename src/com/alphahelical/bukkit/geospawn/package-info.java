@@ -5,4 +5,4 @@
  * @author Keith Beckman
  *
  */
-package com.alphahelical.geospawn;
+package com.alphahelical.bukkit.geospawn;

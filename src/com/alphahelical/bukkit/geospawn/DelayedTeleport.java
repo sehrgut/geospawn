@@ -1,4 +1,4 @@
-package com.alphahelical.geospawn;
+package com.alphahelical.bukkit.geospawn;
 
 import java.util.logging.Logger;
 
