@@ -1,7 +1,7 @@
 name: GeoSpawn
 main: com.alphahelical.bukkit.geospawn.GeoSpawn
 version: 0.2b
-depend: [GeoIPTools]
+depend: [GeoIPTools,SGCore]
 
 commands:
   geospawn:
