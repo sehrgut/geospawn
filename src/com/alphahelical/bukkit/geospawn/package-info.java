@@ -1,7 +1,5 @@
 /**
- * 
- */
-/**
+ * GeoSpawn plugin.
  * @author Keith Beckman
  *
  */

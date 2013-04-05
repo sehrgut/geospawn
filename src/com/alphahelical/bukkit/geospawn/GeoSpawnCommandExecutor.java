@@ -9,6 +9,11 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import com.alphahelical.bukkit.teleport.DirectTeleportStrategy;
+import com.alphahelical.bukkit.teleport.ITeleportStrategy;
+import com.alphahelical.collections.ArrayUtil;
+import com.alphahelical.util.EnumUtil;
+
 /**
  * @author Keith Beckman
  *
@@ -35,7 +40,7 @@ public class GeoSpawnCommandExecutor implements CommandExecutor {
 	
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-		Commands cmdname = Util.findInEnum(Commands.class, cmd.getName(), Commands.UNKNOWN);
+		Commands cmdname = EnumUtil.find(Commands.class, cmd.getName(), Commands.UNKNOWN);
 
 		switch(cmdname) {
 			case GEOSPAWN:
@@ -56,7 +61,7 @@ public class GeoSpawnCommandExecutor implements CommandExecutor {
 		}
 		
 		String subcmd = args[0];
-		String[] subargs = Util.shiftOff(args);
+		String[] subargs = ArrayUtil.shiftOff(args);
 		
 		
 		

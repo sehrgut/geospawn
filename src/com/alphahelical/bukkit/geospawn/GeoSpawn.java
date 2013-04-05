@@ -3,7 +3,6 @@
  */
 package com.alphahelical.bukkit.geospawn;
 
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.configuration.ConfigurationSection;
@@ -11,10 +10,11 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.util.Vector;
 
-
-import uk.org.whoami.geoip.GeoIPLookup;
-import uk.org.whoami.geoip.GeoIPTools;
-
+import com.alphahelical.bukkit.teleport.ITeleportStrategy;
+import com.alphahelical.bukkit.teleport.DelayedTeleportStrategy;
+import com.alphahelical.bukkit.teleport.DirectTeleportStrategy;
+import com.alphahelical.bukkit.teleport.InterceptTeleportStrategy;
+import com.alphahelical.util.EnumUtil;
 
 /**
  * @author Keith Beckman
@@ -24,7 +24,7 @@ public class GeoSpawn extends JavaPlugin {
 	
 	public TeleportModes getTeleportMode() {
 		String mode = this.getConfig().getString("teleport-mode");
-		return Util.findInEnum(TeleportModes.class, mode, TeleportModes.DELAY);
+		return EnumUtil.find(TeleportModes.class, mode, TeleportModes.DELAY);
 	}
 	
 	public int getInterceptTimeout() {
@@ -33,14 +33,6 @@ public class GeoSpawn extends JavaPlugin {
 	
 	public int getTeleportDelay() {
 		return this.getConfig().getInt("teleport-delay");
-	}
-	
-	private GeoIPLookup m_geoIp = null;
-	protected GeoIPLookup getGeoIp() {
-		if(m_geoIp == null)
-			this.m_geoIp = ((GeoIPTools)Bukkit.getServer().getPluginManager().getPlugin("GeoIPTools"))
-						.getGeoIPLookup();		
-		return this.m_geoIp;
 	}
 	
 	private ITeleportStrategy tp = null;

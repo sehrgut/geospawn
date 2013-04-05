@@ -4,6 +4,7 @@
 package com.alphahelical.bukkit.geospawn;
 
 import org.bukkit.Bukkit;
+import com.alphahelical.util.EnumUtil;
 
 /**
  * @author Keith Beckman
@@ -21,7 +22,7 @@ public class Config {
 
 	public static TeleportModes getTeleportMode() {
 		String mode = getPlugin().getConfig().getString("teleport-mode");
-		return Util.findInEnum(TeleportModes.class, mode, TeleportModes.DELAY);
+		return EnumUtil.find(TeleportModes.class, mode, TeleportModes.DELAY);
 	}
 	
 	public static int getInterceptTimeout() {
