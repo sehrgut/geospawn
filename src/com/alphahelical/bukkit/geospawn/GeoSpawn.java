@@ -21,7 +21,7 @@ import com.alphahelical.util.EnumUtil;
  *
  */
 public class GeoSpawn extends JavaPlugin {
-	
+	//todo: use Config class
 	public TeleportModes getTeleportMode() {
 		String mode = this.getConfig().getString("teleport-mode");
 		return EnumUtil.find(TeleportModes.class, mode, TeleportModes.DELAY);

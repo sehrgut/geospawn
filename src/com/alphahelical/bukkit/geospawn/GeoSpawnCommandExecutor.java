@@ -195,6 +195,7 @@ public class GeoSpawnCommandExecutor implements CommandExecutor {
 				String msg = String.format("Set GeoSpawn for %s to %s:%f,%f,%f:%f.",
 						country_code, l2.getWorld().getName(), l2.getX(), l2.getY(), l2.getZ(), l2.getYaw());
 				sender.sendMessage(msg);
+
 				//TODO: test l2 == l1 for world and int x y z yaw
 			}
 		return true;
